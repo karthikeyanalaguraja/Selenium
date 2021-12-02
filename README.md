@@ -37,13 +37,13 @@
 ```
             
 ***7. Navigate to source control***
-    https://bitbucket.org/APITURE/communityxpressui/src/master/
+   https://github.com/karthikeyanalaguraja/selenium
 ```
     a. Click the Clone in SourceTree button
     b. Choose a location to clone the repo (I choose something close to the root directory, such as c:/source/ui)
     c. Create a branch from master (latest)
         i. Click the Branch button
-        ii. Enter a name (e.g., 'Nick')
+        ii. Enter a name (e.g., 'Karthik')
         iii. Click Create Branch
 ```
 
@@ -86,9 +86,7 @@
     Category : Usages are given below,
         SmokeTest   : This is for CICD, this should be always less than 3 mins
         All         : This run everyday at night {Cat all 7 days, Cat2 M-F}
-        Sanity      : This is the combination of Smoke, MFA, Angular and OtherMoneymovents exclude ACH
-        ACHTest     : This is all ach test include commercial and Retail
-        FXIMTest    : All the test related to FXIM
+        Top20       : This is the top 20 tests need to run in CICD before merge the code into develop
+        Top50       : This is the top 50 tests need to run in CICD before merge the code into master
         Production  : This runs when there is a deployment, while choosing this you need to choose either prod or prodwest from stage
-        SSOTest     : This is the place all the Active SSO connection, this test is only runnable in CAT ot CAT2    
-```
+  ```
