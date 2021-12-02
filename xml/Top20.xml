@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Top20-Test" verbose="1" thread-count="7">
+    <listeners>
+        <listener class-name="core.utilities.listeners.TestRetryAnalyzerListener"/>
+    </listeners>
+    <test name="Top20Test" parallel="classes">
+        <groups>
+            <run>
+                <exclude name="ignore"/>
+                <include name="top20"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="communityUiTests"></package>
+        </packages>
+    </test>
+</suite>
+

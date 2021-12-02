@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Top50-Test" verbose="1" thread-count="10">
+    <listeners>
+        <listener class-name="core.utilities.listeners.TestRetryAnalyzerListener"/>
+    </listeners>
+    <test name="Top50Test" parallel="classes">
+        <groups>
+            <run>
+                <exclude name="ignore"/>
+                <include name="top50"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="communityUiTests"></package>
+        </packages>
+    </test>
+</suite>
+

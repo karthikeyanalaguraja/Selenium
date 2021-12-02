@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="All" verbose="1" thread-count="7">
+    <listeners>
+        <listener class-name="core.utilities.listeners.TestRetryAnalyzerListener"/>
+    </listeners>
+    <test name="RegressionTest" parallel="classes">
+        <groups>
+            <run>
+                <exclude name="ignore"/>
+                <exclude name="deprecated"/>
+                <exclude name="production"/>
+                <exclude name="cardControl"/>
+                <exclude name="initialSetup"/>
+                <exclude name="SSO"/>
+                <exclude name="Home"/>
+                <exclude name="visual"/>
+                <exclude name="createLoginVolume"/>
+            </run>
+        </groups>
+        <packages><package name="communityUiTests"/></packages>
+    </test>
+</suite>
