@@ -13,11 +13,11 @@ import org.testng.annotations.Test;
 @Listeners(MyTestListener.class)
 @Epic("Main Tests")
 @Feature("Main TESTS")
-public class MainTests extends BaseCommunityTest {
+public class BrokenLinks extends BaseCommunityTest {
     
     
     @Test(groups = "smoke", description = "Validate all the links are working under Get started")
-    @TestCase(owner = Owner.Karthik, testId = 1)
+    @TestCase(owner = Owner.Karthik, testId = 201)
     public void validate_getstarted_links() {
         pages.login.getEnvironment();
         pages.login.login("xpressmobileqa@gmail.com",
@@ -29,7 +29,7 @@ public class MainTests extends BaseCommunityTest {
     }
     
     @Test(groups = "smoke", description = "Validate all the links are working under Dash board")
-    @TestCase(owner = Owner.Karthik, testId = 2)
+    @TestCase(owner = Owner.Karthik, testId = 202)
     public void validate_dashboard_links() {
         pages.login.getEnvironment();
         pages.login.login("xpressmobileqa@gmail.com",
@@ -41,7 +41,7 @@ public class MainTests extends BaseCommunityTest {
     }
     
     @Test(groups = "smoke", description = "Validate all the links are working under Customer")
-    @TestCase(owner = Owner.Karthik, testId = 3)
+    @TestCase(owner = Owner.Karthik, testId = 203)
     public void validate_customer_links() {
         pages.login.getEnvironment();
         pages.login.login("xpressmobileqa@gmail.com",
@@ -53,7 +53,7 @@ public class MainTests extends BaseCommunityTest {
     }
     
     @Test(groups = "smoke", description = "Validate all the links are working under Reporting")
-    @TestCase(owner = Owner.Karthik, testId = 4)
+    @TestCase(owner = Owner.Karthik, testId = 204)
     public void validate_reporting_links(){
         pages.login.getEnvironment();
         pages.login.login("xpressmobileqa@gmail.com",
@@ -65,7 +65,7 @@ public class MainTests extends BaseCommunityTest {
     }
     
     @Test(groups = "smoke", description = "Validate all the links are working under priceBook")
-    @TestCase(owner = Owner.Karthik, testId = 5)
+    @TestCase(owner = Owner.Karthik, testId = 205)
     public void validate_priceBook_links() {
         pages.login.getEnvironment();
         pages.login.login("xpressmobileqa@gmail.com",
@@ -77,7 +77,7 @@ public class MainTests extends BaseCommunityTest {
     }
     
     @Test(groups = "smoke", description = "Validate all the links are working under newJob")
-    @TestCase(owner = Owner.Karthik, testId = 6)
+    @TestCase(owner = Owner.Karthik, testId = 206)
     public void validate_newJob_links()  {
         pages.login.getEnvironment();
         pages.login.login("xpressmobileqa@gmail.com",

@@ -1,4 +1,4 @@
-package pages.Other;
+package pages;
 
 import core.basePages.AllCommunityPages;
 import core.basePages.BaseCommunityPage;
@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
+
+import javax.security.auth.login.LoginException;
 
 
 public class LoginPage extends BaseCommunityPage {
@@ -71,9 +73,6 @@ public class LoginPage extends BaseCommunityPage {
     
     // Reset Password Modal related XPATHs
     
-    @FindBy(xpath=".//div[@class='MuiDialog-container MuiDialog-scrollPaper']//following::p")
-    public WebElement resetPasswordMessage;
-    
     @FindBy(xpath=".//div[@class='MuiDialog-container MuiDialog-scrollPaper']//following::input[@id='email']")
     public WebElement resetPasswordEmailInput;
     
@@ -110,7 +109,28 @@ public class LoginPage extends BaseCommunityPage {
         emailInput.sendKeys(Username);
         passwordInput.sendKeys(Password);
         signInButton.click();
+        pages.getStarted.waitForPageLoad();
+    }
     
+    @Step("Login user with Invalid credentials")
+    public void invalidLogin(String Username, String Password) {
+        navigateToUrl();
+        Assert.assertEquals(signInHeader.getText(),"Sign in");
+        emailInput.sendKeys(Username);
+        passwordInput.sendKeys(Password);
+        signInButton.click();
+        clickElementOnceVisible(errorText);
+        Assert.assertEquals(errorText.getText(),"Please enter a valid email and password.");
+    }
+    
+    @Step("User try to reset his password through forgot password")
+    public void forgotPassword (String Username) {
+        navigateToUrl();
+        Assert.assertEquals(signInHeader.getText(),"Sign in");
+        forgotPasswordButton.click();
+        resetPasswordEmailInput.sendKeys(Username);
+        resetPasswordEmailSend.click();
+        pages.login.waitForPageLoad();
     }
     
     

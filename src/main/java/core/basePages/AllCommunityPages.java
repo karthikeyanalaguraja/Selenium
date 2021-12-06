@@ -1,23 +1,23 @@
 package core.basePages;
 
 import core.utilities.baseUtilities.Browser;
-import pages.Other.*;
+import pages.LoginPage;
+import pages.*;
 
 
 public class AllCommunityPages {
 
     public LoginPage login;
-    public AuthPage auth;
-    public OverviewPage home;
-
-    //mfa pages
-    public MFAPage mfaPage;
-
-
+    public GetStartedPage getStarted;
+    public SignUpPage signUpPage;
+    public NewJobPage newJobPage;
+   
     public AllCommunityPages(Browser b){
         login = new LoginPage(b, this);
-        auth = new AuthPage(b, this);
-        home = new OverviewPage(b, this);
-        
-     }
+        getStarted = new GetStartedPage(b, this);
+        signUpPage = new SignUpPage(b, this);
+        newJobPage = new NewJobPage(b, this);
+    
+    
+    }
 }

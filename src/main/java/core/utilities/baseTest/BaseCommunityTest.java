@@ -3,18 +3,12 @@ package core.utilities.baseTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import core.basePages.AllCommunityPages;
-import core.basePages.FXIMPages;
 import core.utilities.baseUtilities.Browser;
 import core.utilities.baseUtilities.SqlManager;
 import core.utilities.baseUtilities.XmlFileWriter;
 import core.utilities.extentReport.ExtentManager;
 import core.utilities.objects.User;
-import core.utilities.objects.UserType;
 import io.qameta.allure.Attachment;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.*;
 import org.testng.annotations.*;
 import org.testng.xml.XmlTest;
@@ -37,7 +31,6 @@ public class BaseCommunityTest implements IHookable {
 
     //objects
     protected AllCommunityPages pages;
-    protected FXIMPages fximPages;
     protected SqlManager sqlManager;
     protected User user;
     protected String environment;
@@ -95,61 +88,13 @@ public class BaseCommunityTest implements IHookable {
         }
     }
     
-    //This is for trouble shooting. If you need anyspecfic customer to be used, we can use this method
-    public void reloginwithSameCustomer(String accessId){
-        user = sqlManager.getCustomer(accessId);
-        pages.login.navigateToUpdate(user.institutionID);
-        pages.login.login(user);
-    }
 
     @AfterSuite(alwaysRun = true)
     public void suiteFinalizer() throws IOException {
         xmlFileWriter = new XmlFileWriter();
         xmlFileWriter.createAllureEnvXml();
     }
-
-    public void loginUserType(UserType userType){
-        user = sqlManager.getCustomer(environment, userType);
-        pages.login.navigateToUpdate(user.institutionID);
-        browser.logTestAction("Env: "+environment+" User type: "+userType.getType());
-        pages.login.login(user);
-    }
-
-    public void loginUserTypeNotInUse(UserType userType){
-        user = sqlManager.getCustomer(environment,  userType,0);
-        pages.login.navigateToUpdate(user.institutionID);
-        browser.logTestAction("Env: "+environment+" User type: "+userType.getType());
-        pages.login.login(user);
-    }
-
-    public void loginSSOUserType(UserType userType){
-        user = sqlManager.getSSOCustomer(environment, userType.getType());
-        pages.login.navigateToUpdate(user.institutionID);
-        browser.logTestAction("Env: "+environment+" User type: "+userType.getType());
-        pages.login.login(user);
-    }
-
-    public void loginFocusCustomer(String focusId, UserType userType){
-        user = sqlManager.getFocusCustomer(environment, focusId, userType,0);
-        pages.login.navigateToUpdate(user.institutionID);
-        browser.logTestAction("Env: "+environment+" User type: "+userType.getType());
-        pages.login.login(user);
-    }
-
-    public void loginSubUser_Create(UserType userType){
-        user = sqlManager.getCustomer(environment, userType, 0);
-        pages.login.navigateToUpdate(user.institutionID);
-        browser.logTestAction("Env: "+environment+" User type: "+userType.getType());
-        pages.login.login(user);
-    }
-
-    public void loginSubUser_Approve(String focusId, UserType userType){
-        user = sqlManager.getApproveSubUser(environment, focusId, userType,0);
-        pages.login.navigateToUpdate(user.institutionID);
-        browser.logTestAction("Env: "+environment+" User type: "+userType.getType());
-        pages.login.login(user);
-    }
-
+    
    @Override
     public void run(IHookCallBack callBack, ITestResult testResult) {
         callBack.runTestMethod(testResult);

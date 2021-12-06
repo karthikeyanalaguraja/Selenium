@@ -375,7 +375,6 @@ public abstract class  BaseCommunityPage extends BasePage {
        @Step("{method}")
         public void navigateToHome(){
             clickElementOnceClickable(homeTab);
-            pages.home.waitForPageLoad();
             pageWait.until(ExpectedConditions.invisibilityOf(spinner));
            }
 
