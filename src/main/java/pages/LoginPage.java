@@ -18,6 +18,8 @@ public class LoginPage extends BaseCommunityPage {
 
     public static String baseUrl;
     public String url;
+    private String[] cooks;
+    private static String sessionCookie;
 
     public LoginPage(Browser browser, AllCommunityPages pages) {
         super(browser, pages);
@@ -110,6 +112,11 @@ public class LoginPage extends BaseCommunityPage {
         passwordInput.sendKeys(Password);
         signInButton.click();
         pages.getStarted.waitForPageLoad();
+        cooks = driver.manage().getCookies().toString().split(" ");
+        sessionCookie = "";
+        for(String s : cooks){
+           System.out.println(s);
+        }
     }
     
     @Step("Login user with Invalid credentials")
