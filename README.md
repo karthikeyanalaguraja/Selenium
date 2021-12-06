@@ -2,25 +2,22 @@
 ***1. Install Intellij Community/free version***
    https://www.jetbrains.com/idea/download/#section=windows
    
-***2. Install Sourcetree***
-    https://www.sourcetreeapp.com If prompted, choose the full git install option (if git hasn't been installed prior)
-
-***3. Install Java JDK 9***
+***2. Install Java JDK 9***
    https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html
    ```x64, Be sure to google "how to install java osx" and follow the steps suggested such as setting environment variables and path properly```
     
-***4. Install Maven***
+***3. Install Maven***
     https://maven.apache.org/download.cgi, Download zip and extract to a folder in your root directory
     ```Be sure to google "how to install maven osx" and follow the steps suggested such as setting environment variables and path properly```
     
-***5. Create a folder named ‘browsers’ folder in your root directory (for macOS, put it under /Library in your root directory) and download the latest of each of the following drivers to this folder***
+***4 Create a folder named ‘browsers’ folder in your root directory (for macOS, put it under /Library in your root directory) and download the latest of each of the following drivers to this folder***
 ```
     a. chromedriver: https://chromedriver.chromium.org/downloads
     b. geckodriver: https://github.com/mozilla/geckodriver/releases
     *Note: make sure your browser version and lib/browser chromedriver version is same all the time.
 ```
     
-***6. Add the Maven bin folder and the browsers folder path to your System Path environment variable***
+***5. Add the Maven bin folder and the browsers folder path to your System Path environment variable***
 ```
     a. Mac
         i. Open terminal
@@ -36,7 +33,7 @@
             i.2. C:\browsers
 ```
             
-***7. Navigate to source control***
+***6. Navigate to source control***
    https://github.com/karthikeyanalaguraja/selenium
 ```
     a. Click the Clone in SourceTree button
@@ -47,14 +44,14 @@
         iii. Click Create Branch
 ```
 
-***8. Launch IntelliJ***
+***7. Launch IntelliJ***
 ```
     a. Click the 'Open' option
     b. Navigate to the directory where you cloned your repo (e.g., c:\Source\UI)
     c. Click OK
 ```
 
-***9. Set initial IntelliJ options***
+***8. Set initial IntelliJ options***
 ```
     a. Navigate to File→ Other Settings→ Preferences for New Projects→ Build,Execution,Deployment→Build Tools→ Maven→ Importing
         i. Check 'Import Maven projects automatically
@@ -64,21 +61,21 @@
         ii. Click on Defaults>TestNG
             1. Set Test kind = Class
             2. Leave Class empty
-            3. Set VM options = -Dbrowser=Chrome -Drun_locally=true -Denvironment=https://cat2-fxweb.apiture-comm-preprod.com -DuseDocker=true
+            3. Set VM options = -Dbrowser=Chrome -Drun_locally=true -Denvironment=https://pro.housecallpro-qa.com/pro/log_in -DuseDocker=true
 ```
-***10. Running tests***
+***9. Running tests***
 ```
     a. Tests can be run individually or as a suite (xml folder):
         i. To run the smoke test, rigth click and run "SmokeTest.xml" file
         ii. To run the regression test, rigth click and run "All.xml" file
         iii. To run tests individually, right click and run each test from test classes under test/java/communityUiTests
 ```
-***11. Allure Report***
+***10. Allure Report***
 ```
     Afer xml test suite run, "allure-results" folder gets updated with json files.
     In jenkins, latest Allure report is located on main page of the test pipeline and each test build will have allure icon for report.
 ```
-***12. How to choose the test in Community-tests-ui***
+***11. How to choose the test in Community-tests-ui***
 ```
     Go to URL,https://build-dev.community.apiture.com/view/Tests/job/community-tests-ui/ click on "Build with Parameters"
     Branch   : could be Master or develop or develop-offshore
